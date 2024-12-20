@@ -14,7 +14,7 @@ const isSidebarOpen = ref<boolean>(false);
 
 <template>
   <UModal v-model="isSidebarOpen" class="lg:hidden">
-    <Sidebar />
+    <Sidebar @open-form="emit('openForm')" />
   </UModal>
   <nav class="flex justify-between z-20">
     <div class="flex gap-4 items-center">

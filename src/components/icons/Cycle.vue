@@ -13,7 +13,6 @@ const dashOffset = computed(() => circumference.value * (1 - props.progress));
 
 <template>
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="block">
-    <!-- Фон обводки -->
     <circle
       class="opacity-30 stroke-neutral"
       cx="50"
@@ -22,7 +21,6 @@ const dashOffset = computed(() => circumference.value * (1 - props.progress));
       fill="none"
       :stroke-width="4"
     />
-    <!-- Прогресс обводки -->
     <circle
       class="progress-circle stroke-white transition-all"
       cx="50"
