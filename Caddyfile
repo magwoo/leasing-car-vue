@@ -1,0 +1,31 @@
+{
+	{$PROXY_HEAD}
+}
+
+leasing.dev.{$PROXY_DOMAIN} {
+	handle_path /api/* {
+	    uri strip_prefix /api
+		reverse_proxy backend
+	}
+	handle {
+		root * /web/client
+		try_files {path} index.html
+		file_server
+	}
+}
+
+admin.leasing.dev.{$PROXY_DOMAIN} {
+	handle_path /api/* {
+	    uri strip_prefix /api
+		reverse_proxy backend
+	}
+	handle {
+		root * /web/admin
+		try_files {path} index.html
+		file_server
+	}
+}
+
+db.leasing.dev.{$PROXY_DOMAIN} {
+	reverse_proxy database:4001
+}
