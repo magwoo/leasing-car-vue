@@ -39,7 +39,7 @@ function caclRangeRatio() {
         :min="props.min"
         :max="props.max"
         :value="model"
-        @change="(e: any) => model = e.target.value"
+        @change="(e: any) => model = Number(e.target.value)"
         :id="props.label"
       />
       <slot></slot>

@@ -34,20 +34,20 @@ watch(currentIndex, (value) => {
 
 <template>
   <section
-    class="relative flex flex-col justify-end p-11 pl-32 aspect-[16/9] h-full"
+    class="relative flex flex-col items-center justify-end p-4 lg:p-11 lg:pl-32 w-full lg:w-auto lg:aspect-[16/9] h-full"
   >
     <img
       v-for="[i, img] in imgs.entries()"
       :src="img"
       alt="caroucel image"
-      class="absolute inset-0 transition duration-500"
+      class="absolute lg:inset-0 max-sm:-left-36 -top-4 sm:-top-16 h-2/3 sm:h-2/3 lg:h-full lg:w-full transition duration-500 object-cover"
       :class="{
         'translate-x-0 opacity-100': i == currentIndex,
         '-translate-x-16 opacity-0': i < currentIndex,
         'translate-x-16 opacity-0': i > currentIndex,
       }"
     />
-    <div class="relative flex justify-between w-full">
+    <div class="relative flex justify-center lg:justify-between w-full">
       <div class="flex items-end">
         <div class="flex gap-4 items-center">
           <button
@@ -55,13 +55,13 @@ watch(currentIndex, (value) => {
             @click="currentIndex = i"
             class="rounded-full transition size-2"
             :class="{
-              'scale-[2] bg-white': i == currentIndex,
+              'scale-150 bg-white': i == currentIndex,
               'bg-neutral/35': i != currentIndex,
             }"
           />
         </div>
       </div>
-      <div class="flex gap-4 items-center">
+      <div class="hidden lg:flex gap-4 items-center">
         <UButton
           @click="currentIndex--"
           type="round"

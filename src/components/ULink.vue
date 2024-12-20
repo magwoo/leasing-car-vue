@@ -8,7 +8,7 @@ const props = defineProps<Props>();
 
 <template>
   <a
-    class="font-semibold text-accent/75 hover:text-accent"
+    class="font-semibold text-xl lg:text-base text-accent/75 hover:text-accent"
     :href="props.href ?? '#'"
   >
     <slot></slot>

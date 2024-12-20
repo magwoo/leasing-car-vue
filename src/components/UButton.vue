@@ -16,7 +16,7 @@ const buttonStyles = {
   border:
     "bg-white ring-[1px] px-4 py-2 ring-primary text-primary hover:bg-primary hover:text-white w-fit ",
   base: "bg-neutral text-accent px-4 py-2 hover:bg-accent hover:text-white w-fit ",
-  round: "flex items-center justify-center text-white ",
+  round: "relative flex items-center justify-center text-white ",
 };
 
 const props = defineProps<Props>();
@@ -26,13 +26,13 @@ const emit = defineEmits(["click"]);
 <template>
   <button
     @click="emit('click')"
-    class="relative rounded-full font-semibold transition-colors"
+    class="rounded-full font-semibold transition-colors"
     :class="buttonStyles[props.type ?? 'base'] + props.class"
     :disabled="props.isDisabled"
   >
     <slot v-if="!(isLoading ?? false)"></slot>
     <span v-if="isLoading">loading</span>
-    <div class="absolute inset-0">
+    <div v-if="props.type == 'round'" class="absolute inset-0">
       <Cycle
         v-if="props.type == 'round'"
         :progress="props.progress ?? 0.5"
