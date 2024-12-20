@@ -12,7 +12,7 @@ RUN npm install
 COPY frontend/client .
 RUN npm run build
 
-FROM caddy:2.8.4-alpine AS runner
+FROM caddy:2.8.4-alpine AS proxy-runtime
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=admin-builder /build/dist /web/admin
 COPY --from=client-builder /build/dist /web/client

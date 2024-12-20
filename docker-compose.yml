@@ -1,0 +1,25 @@
+services:
+  proxy:
+    container_name: leasing-proxy
+    restart: always
+    image: ${IMAGE_REGISTRY:-ghcr.io}/magwoo/leasing-proxy:latest
+    build:
+      context: .
+    ports:
+      - 80:80
+    env_file:
+      - ./.env
+    volumes:
+      - ./data/caddy:/data/caddy
+    networks:
+      - proxy_network
+    develop:
+      watch:
+        - action: rebuild
+          path: Caddyfile
+        - action: rebuild
+          path: frontend
+
+networks:
+  proxy_network:
+    external: true
