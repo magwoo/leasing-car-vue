@@ -5,8 +5,6 @@ services:
     image: ${IMAGE_REGISTRY:-ghcr.io}/magwoo/leasing-proxy:latest
     build:
       context: .
-    ports:
-      - 80:80
     env_file:
       - ./.env
     volumes:

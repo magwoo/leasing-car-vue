@@ -2,7 +2,7 @@
 	{$PROXY_HEAD}
 }
 
-leasing.dev.{$PROXY_DOMAIN} {
+http://leasing.dev.{$PROXY_DOMAIN} {
 	handle_path /api/* {
 	    uri strip_prefix /api
 		reverse_proxy backend
@@ -14,7 +14,7 @@ leasing.dev.{$PROXY_DOMAIN} {
 	}
 }
 
-admin.leasing.dev.{$PROXY_DOMAIN} {
+http://admin.leasing.dev.{$PROXY_DOMAIN} {
 	handle_path /api/* {
 	    uri strip_prefix /api
 		reverse_proxy backend
@@ -24,8 +24,4 @@ admin.leasing.dev.{$PROXY_DOMAIN} {
 		try_files {path} index.html
 		file_server
 	}
-}
-
-db.leasing.dev.{$PROXY_DOMAIN} {
-	reverse_proxy database:4001
 }
