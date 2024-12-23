@@ -1,5 +1,0 @@
-CREATE TABLE IF NOT EXISTS submits (
-    id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL,
-    phone INTEGER NOT NULL
-);

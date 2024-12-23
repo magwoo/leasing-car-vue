@@ -13,7 +13,7 @@ const model = defineModel();
 
 <template>
   <div
-    class="relative bg-neutral hover:brightness-95 focus:bg-white text-accent min-w-32 h-12 rounded-2xl"
+    class="relative bg-neutral hover:brightness-95 text-accent min-w-32 h-12 rounded-2xl"
   >
     <input
       v-model="model"
